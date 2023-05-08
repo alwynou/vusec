@@ -1,6 +1,6 @@
 {
   "name": "vusec",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Wrap vue component to composable function.",
   "scripts": {
     "build": "unbuild",
