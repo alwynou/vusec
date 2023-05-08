@@ -56,6 +56,18 @@ export interface VusecConfig {
    * @default document.body
    */
   appendTo?: MaybeRef<HTMLElement | undefined>
+
+  /**
+   * Index of insertion relative to `appendTo`.
+   *
+   * @value 'beforebegin' : `appendTo`元素本身的前面。
+   * @value 'afterbegin'  : 只`appendTo`元素当中，`appendTo`元素第一个子孩子前面。
+   * @value 'beforeend'   : 只`appendTo`元素当中，`appendTo`元素最后一个子孩子后面。
+   * @value 'afterend'    : `appendTo`元素本身的后面。
+   *
+   * @default 'afterend'
+   */
+  appendPosition?: InsertPosition
 }
 
 // ==============================

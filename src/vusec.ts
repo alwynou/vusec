@@ -33,6 +33,7 @@ const defaultConfig: VusecConfig = {
   display: 'v-show',
   replacement: false,
   appendTo: document.body,
+  appendPosition: 'beforeend',
 }
 export function vusec<T extends FuncComponent, C extends VusecConfig>(
   component: T,
@@ -116,9 +117,9 @@ export function vusec<T extends ComponentType, C extends VusecConfig>(
       if (ins?.appContext)
         rootComponentVNode.appContext = ins.appContext
 
-      container = container ?? (document.createDocumentFragment() as unknown as HTMLElement)
+      container = container ?? (document.createElement('span') as unknown as HTMLElement)
       render(rootComponentVNode, container)
-      unref(mergedConfig.appendTo)!.appendChild(container)
+      unref(mergedConfig.appendTo)!.insertAdjacentElement(mergedConfig.appendPosition!, container.firstElementChild!)
       isMounted = true
     }
     const unmount = () => {

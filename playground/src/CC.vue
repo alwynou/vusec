@@ -8,10 +8,10 @@ const appendToRef = ref<HTMLElement>()
 const diaRef = ref<InstanceType<typeof Dialog>>()
 const { toggle, hide } = useDialog({
   ref: diaRef,
-  title: 'xxasdsd',
+  title: 'title',
   onConfirm: () => hide(),
   onCancel: () => hide(),
-}, null, { appendTo: appendToRef })
+}, () => 'body content', { appendTo: appendToRef, appendPosition: 'beforebegin' })
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const { toggle, hide } = useDialog({
     <button @click="toggle">
       toggle
     </button>
-    <div ref="appendToRef" />
+    <div ref="appendToRef" data-xxx />
   </div>
 </template>
 
