@@ -67,9 +67,10 @@ export function vusec<T extends ComponentType, C extends VusecConfig>(
       }
 
       // v-show
-      const _attrs = mergeProps(unref(baseProps) || {}, inheritAttrs || {})
-
-      return withDirectives(createVNode(component as any, _attrs, children), [[vShow, unref(visible)]])
+      return withDirectives(
+        createVNode(component as any, mergeProps(unref(baseProps) || {}, inheritAttrs || {}), children),
+        [[vShow, unref(visible)]],
+      )
     }
 
     const createInnerComponent = (wrapInstance: ComponentInternalInstance, baseChildren: Record<string, any>) => {
