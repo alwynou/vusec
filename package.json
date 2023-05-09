@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Wrap vue component to composable function.",
   "scripts": {
-    "build": "unbuild",
+    "build": "pnpm run test && unbuild",
     "play": "pnpm run -C playground dev",
     "test": "vitest --run",
     "test:watch": "vitest -w",
