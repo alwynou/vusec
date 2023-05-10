@@ -95,7 +95,7 @@ export function vusec<T extends ComponentType, C extends VusecConfig>(
         vnode = componentRender(props!, mergedChildren)
       }
 
-      if (vnode && (ref as any).i)
+      if (vnode && (ref as any)?.i)
         vnode.ref = ref
 
       return vnode
